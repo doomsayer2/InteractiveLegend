@@ -36,6 +36,10 @@ class App extends Component {
     this.setState({ mode: mode });
   }
 
+  /**
+   * Sets the view for the user
+   * @param view to be seen by the user
+   */
   setView(view) {
     this.setState({ view: view });
   }
