@@ -1,5 +1,18 @@
 @import '~antd/dist/antd.css';
 
+/*
+ Definition of colors for theme
+*/
+* {
+    --primaryColor: #e23e57;
+    --hoverColor: #88304E;
+    --secondaryColor: #522546;
+    --backgroundColor: #311D3F;
+    --lightGray: #F0F5F9;
+    --middleGray: #C9D6DF;
+    --darkGray: #1E2022;
+}
+
 .App {
     font-size: large;
 }
@@ -141,4 +154,24 @@
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
+}
+
+.btn-greeting {
+    background-color: #E23E57;
+    color: white;
+    border-color: white;
+    margin: 5px 0 15px 0;
+    width: 50%;
+    align-self: center;
+}
+
+.btn-greeting:hover {
+    background-color: #88304E;
+    color: white;
+    border-color: white;
+}
+
+.showBorders {
+    height: 600px;
+    border: 1px solid var(--middleGray);
 }
