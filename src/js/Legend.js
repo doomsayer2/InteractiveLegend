@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import equal from 'fast-deep-equal';
-import {getModeData} from "./ModeDataProvider";
-import {Empty} from "./util";
+import {getModeData} from "./shared/ModeDataProvider";
+import {Empty} from "./shared/util";
 import "../css/legend.css";
 
 export default class Legend extends Component {

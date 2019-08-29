@@ -5,8 +5,8 @@ import Greeting from './components/Greeting';
 
 import '../css/main.css';
 import 'intro.js/introjs.css';
-import { ABSTRACT, CONCRETE } from './constants';
-import { Empty, LoadingIndicator } from './util';
+import { ABSTRACT, CONCRETE } from './shared/constants';
+import { LoadingIndicator } from './shared/util';
 
 // Antd
 import { Row, Col, Divider, PageHeader, Button, message } from 'antd';
@@ -36,7 +36,7 @@ class App extends Component {
    * This method is used in order to start the main application and switch away form the explain screen
    */
   startMainApp() {
-    this.setState({ mode: 1, init: false });
+    this.setState({ mode: 6, init: false });
     message.success('Good! You are ready to go!');
   }
 
@@ -88,20 +88,20 @@ class App extends Component {
         ) : (
           <Fragment>
             <PageHeader
-              onBack={() => null}
+              onBack={() => this.setState({ init: true })}
               title="Onboarding Test"
               subTitle="(C) Universtiy of applied sciences Austria"
               extra={[
-                <Button key="2" type="default">
+                <Button key="1" type="default">
                   Mode 1
                 </Button>,
-                <Button key="1" type="default">
+                <Button key="2" type="default">
                   Mode 2
                 </Button>
               ]}
             />
-            <div id="vizHeader">
-              <Row type="flex" justify="start" style={{marginTop: 40 + 'px'}}>
+            <div id="vizHeader" style={{ marginTop: 40 + 'px' }}>
+              <Row type="flex" justify="start">
                 <Col span={24}>
                   <h1>For the Title</h1>
                 </Col>
@@ -116,14 +116,29 @@ class App extends Component {
             <div id="vizMain">
               <Row type="flex" justify="space-between">
                 <Col span={16} className="showBorders">
-                  <p>Bar Chart</p>
+                  <div className="visualization">
+                    <BarChart mode={this.state.mode} view={this.state.view} />
+                  </div>
                 </Col>
                 <Col span={8} className="showBorders">
-                  <p>Controls</p>
+                  <Legend
+                    mode={this.state.mode}
+                    view={this.state.view}
+                    cb={i => this.changeVis(i)}
+                  />
                 </Col>
               </Row>
             </div>
-            <div id="vizControls" />
+            <div id="vizControls" style={{ marginTop: 40 + 'px' }}>
+              <Row type="flex" justify="start">
+                <Col span={2}>
+                  <Button type="primary">Previous</Button>
+                </Col>
+                <Col span={2}>
+                  <Button type="primary">Next</Button>
+                </Col>
+              </Row>
+            </div>
           </Fragment>
 
           //   <div

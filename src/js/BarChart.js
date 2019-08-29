@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import VegaLite from 'react-vega-lite';
 import equal from 'fast-deep-equal';
-import {getModeData} from "./ModeDataProvider";
+import {getModeData} from "./shared/ModeDataProvider";
 
 export default class BarChart extends Component {
 

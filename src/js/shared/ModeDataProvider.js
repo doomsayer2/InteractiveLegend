@@ -1,6 +1,6 @@
 import {ABSTRACT, CONCRETE} from "./constants";
-import {ConcreteDataProvider} from "./views/concrete";
-import {AbstractDataProvider} from "./views/abstract";
+import {ConcreteDataProvider} from "../views/concrete";
+import {AbstractDataProvider} from "../views/abstract";
 
 export function getModeData(id, view) {
     let cp = new ConcreteDataProvider();
