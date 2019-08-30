@@ -92,12 +92,7 @@ class App extends Component {
               title="Onboarding Test"
               subTitle="(C) Universtiy of applied sciences Austria"
               extra={[
-                <Button key="1" type="default">
-                  Mode 1
-                </Button>,
-                <Button key="2" type="default">
-                  Mode 2
-                </Button>
+                <p>FH LOGO</p>
               ]}
             />
             <div id="vizHeader" style={{ marginTop: 40 + 'px' }}>
@@ -112,6 +107,13 @@ class App extends Component {
                 </Col>
               </Row>
             </div>
+            <Row type="flex" justify="end">
+              <div className="steps-action">
+                <Button type="primary">Previous</Button>
+                <Button type="primary">Next</Button>
+                <Button type="danger">Skip</Button>
+              </div>
+            </Row>
             <Divider />
             <div id="vizMain">
               <Row type="flex" justify="space-between">
