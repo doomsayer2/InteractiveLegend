@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import BarChart from './BarChart';
+import VegaChart from './VegaChart';
 import Legend from './Legend';
 import Greeting from './components/Greeting';
 
 import '../css/main.css';
 import 'intro.js/introjs.css';
-import { ABSTRACT, CONCRETE } from './shared/constants';
+import { CONCRETE } from './shared/constants';
 import { LoadingIndicator } from './shared/util';
 
 // Antd
@@ -17,8 +17,8 @@ class App extends Component {
     this.state = {
       loading: true, // Used to show the loading indicator of the page
       init: false, // Used to decide if we greet the user or not
-      view: ABSTRACT, // Decide which Mode we are in or showing for the user
-      mode: 6
+      view: CONCRETE, // Decide which Mode we are in or showing for the user
+      mode: 6 // Show at which explain step we are
     };
 
     // Bindings here
@@ -26,20 +26,24 @@ class App extends Component {
   }
 
   /**
-   * We set the loading indicator to false in order to show that we are ready
+   * We set the loading indicator to false in order to show that we are ready.
    */
   componentDidMount() {
     this.setState({ loading: false });
   }
 
   /**
-   * This method is used in order to start the main application and switch away form the explain screen
+   * This method is used in order to start the main application and switch away form the explain screen.
    */
   startMainApp() {
     this.setState({ mode: 6, init: false });
     message.success('Good! You are ready to go!');
   }
 
+  /**
+   * This method prevents the user from going over too many steps.
+   * @param id of the current step we are in
+   */
   changeVis(id) {
     let mode = id;
     if (id > 5) mode = 5;
@@ -61,11 +65,6 @@ class App extends Component {
    * @param event we can catch and react to
    */
   handleKeyBoardInput(event) {
-    if (event.key === 'v') {
-      if (this.state.view === ABSTRACT) this.setState({ view: CONCRETE });
-      if (this.state.view === CONCRETE) this.setState({ view: ABSTRACT });
-    }
-
     if (event.key === '1') this.setState({ mode: 1 });
     if (event.key === '2') this.setState({ mode: 2 });
     if (event.key === '3') this.setState({ mode: 3 });
@@ -119,7 +118,7 @@ class App extends Component {
               <Row type="flex" justify="space-between">
                 <Col span={16} className="showBorders">
                   <div className="visualization">
-                    <BarChart mode={this.state.mode} view={this.state.view} />
+                    <VegaChart mode={this.state.mode} view={this.state.view} />
                   </div>
                 </Col>
                 <Col span={8} className="showBorders">

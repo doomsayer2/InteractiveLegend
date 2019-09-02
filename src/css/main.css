@@ -1,4 +1,5 @@
-@import '~antd/dist/antd.css';
+/* @import '~antd/dist/antd.css'; */
+@import './custom-antd.css';
 
 /*
  Definition of colors for theme

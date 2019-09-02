@@ -1,3 +1,7 @@
+/**
+ * @deprecated Old code just for reference and not used anymore.
+ */
+
 const TEXTS = {
     ONE: "A bar chart is a chart for comparing different categories using rectangular bars. Bars can be horizontally or vertically oriented, nevertheless we need some dimensions first. These are defined by the x and y axis.",
     TWO: "One axis of the chart shows the categories, time points, etc. and the other axis shows the values in the specific category or time point which is represented as the height (vertical chart) or width (horizontal chart) of the bars.",

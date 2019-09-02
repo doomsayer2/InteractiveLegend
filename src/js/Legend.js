@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import equal from 'fast-deep-equal';
-import { getModeData } from './shared/ModeDataProvider';
-import { Empty } from './shared/util';
+import { getData } from './shared/DataProvider';
 import '../css/legend.css';
 
 import { Steps, Row } from 'antd';
@@ -25,7 +24,7 @@ const steps = [
 export default class Legend extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { text: getModeData(props.mode, props.view).text, current: 0 };
+    this.state = { text: getData(props.mode).text, current: 0 };
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -34,7 +33,7 @@ export default class Legend extends Component {
       !equal(this.props.view, prevProps.view)
     ) {
       this.setState({
-        text: getModeData(this.props.mode, this.props.view).text
+        text: getData(this.props.mode).text
       });
     }
   }
@@ -69,11 +68,12 @@ export default class Legend extends Component {
             onChange={this.onChange}
             current={this.state.current}
           >
-            {steps.map(item => (
+            {steps.map((item, idx) => (
               <Step
-                key={item.title}
+                key={idx}
                 title={item.title}
                 description={item.content}
+                status={this.state.current === idx ? 'process' : 'wait'}
               />
             ))}
           </Steps>
