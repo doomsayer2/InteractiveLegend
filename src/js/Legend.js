@@ -16,18 +16,27 @@ const steps = [
     content: 'Second-content'
   },
   {
-    title: 'Last',
-    content: 'Last-content'
-  }
+    title: 'Third',
+    content: 'Third-content'
+  },
+  {
+    title: 'Fourth',
+    content: 'Fourth-content'
+  },
+  {
+    title: 'Fifth',
+    content: 'Fifth-content'
+  },
 ];
 
 export default class Legend extends Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = { text: getData(props.mode).text, current: 0 };
+  constructor(props) {
+    super(props);
+    this.state = { text: getData(props.mode).text };
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('previous props', prevProps);
     if (
       !equal(this.props.mode, prevProps.mode) ||
       !equal(this.props.view, prevProps.view)
@@ -44,36 +53,28 @@ export default class Legend extends Component {
       : 'txtModeBtn btn btn-secondary';
   }
 
-  next() {
-    const current = this.state.current + 1;
-    this.setState({ current });
-  }
-
-  prev() {
-    const current = this.state.current - 1;
-    this.setState({ current });
-  }
-
-  onChange = current => {
+  onChange = (current) => {
     console.log('onChange:', current);
-    this.setState({ current });
   };
 
   render() {
+    const { mode } = this.props;
+
     return (
       <div>
         <Row type="flex" justify="start" style={{marginTop: 20 + 'px'}}>
           <Steps
             direction="vertical"
             onChange={this.onChange}
-            current={this.state.current}
+            current={mode}
           >
             {steps.map((item, idx) => (
               <Step
                 key={idx}
                 title={item.title}
                 description={item.content}
-                status={this.state.current === idx ? 'process' : 'wait'}
+                status={mode === idx ? 'process' : 'wait'}
+                onClick={() => this.props.cb(1)}
               />
             ))}
           </Steps>
