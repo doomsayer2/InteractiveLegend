@@ -65,17 +65,17 @@
     opacity: 0.25;
 }
 
-.steps-action #next {
+#next {
     min-width: 100px;
     margin-left: 1%;
 }
 
-.steps-action #previous {
+#previous {
     min-width: 100px;
     margin-left: 1%;
 }
 
-.steps-action #skip {
+#skip {
     min-width: 100px;
     margin-left: 1%;
 }
@@ -168,4 +168,9 @@
 
 .showBorders {
     height: 600px;
+}
+
+.pullRight {
+    display: flex;
+    justify-content: flex-end;
 }

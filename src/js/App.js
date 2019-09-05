@@ -100,8 +100,7 @@ class App extends Component {
               </Row>
             </div>
             <Row type="flex" justify="end">
-              <Col span={24}>
-                <div className="steps-action">
+              <Col span={24} className="pullRight">
                   <Button
                     id="next"
                     type="primary"
@@ -129,7 +128,6 @@ class App extends Component {
                       Skip
                     </Button>
                   )}
-                </div>
               </Col>
             </Row>
             <Divider />
