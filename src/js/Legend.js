@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import StepContent from './components/StepContent';
 import equal from 'fast-deep-equal';
 import { getData } from './shared/DataProvider';
 import '../css/legend.css';
@@ -6,26 +7,27 @@ import '../css/legend.css';
 import { Steps, Row } from 'antd';
 const { Step } = Steps;
 
+// Temporary will be replace later by props.mode and the .text prop then
 const steps = [
   {
     title: 'First',
-    content: 'First-content'
+    content: 'Lorem ipsum <span class="hT">dolor sit</span> amet, <b>consetetur</b> sadipscing elitr, sed diam nonumy eirmod tempor invidunt'
   },
   {
     title: 'Second',
-    content: 'Second-content'
+    content: 'Lorem ipsum dolor sit amet, <b>consetetur</b> sadipscing elitr, sed diam nonumy eirmod'
   },
   {
     title: 'Third',
-    content: 'Third-content'
+    content: 'Lorem <span class="hT">ipsum</span> dolor sit amet, consetetur sadipscing elitr'
   },
   {
     title: 'Fourth',
-    content: 'Fourth-content'
+    content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore'
   },
   {
     title: 'Fifth',
-    content: 'Fifth-content'
+    content: 'Lorem ipsum dolor sit amet, consetetur <span class="hT">sadipscing</span> elitr, sed diam'
   },
 ];
 
@@ -70,11 +72,12 @@ export default class Legend extends Component {
           >
             {steps.map((item, idx) => (
               <Step
+                id={`step-${idx}`}
                 key={idx}
                 title={item.title}
-                description={item.content}
+                description={<StepContent content={item.content} />}
                 status={mode === idx ? 'process' : 'wait'}
-                onClick={() => this.props.cb(1)}
+                onClick={() => this.props.cb(idx)}
               />
             ))}
           </Steps>

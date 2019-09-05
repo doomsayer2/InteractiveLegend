@@ -18,4 +18,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Builds the app for production to the `build` folder.
 
-## Learn More
+## Learn 
+...
+
+## Installed NPM Packages
+- [https://www.npmjs.com/package/html-react-parser](https://www.npmjs.com/package/html-react-parser) -- is used in order to add html form the configuration file and parse it form a string.
+- [Ant Desing](https://ant.design/) -- is the main design theme we are using with some custom adjustments.
+- [http://lesscss.org/](http://lesscss.org/) -- in order to compile the customized style file for our design.
