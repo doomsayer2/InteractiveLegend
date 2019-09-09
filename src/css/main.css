@@ -65,25 +65,19 @@
     opacity: 0.25;
 }
 
-.controlPanel #next {
-    width: 35%;
+#next {
     min-width: 100px;
     margin-left: 1%;
-    margin-top: 2%;
 }
 
-.controlPanel #previous {
-    width: 35%;
+#previous {
     min-width: 100px;
     margin-left: 1%;
-    margin-top: 2%;
 }
 
-.controlPanel #skip {
-    width: 7.5%;
+#skip {
     min-width: 100px;
     margin-left: 1%;
-    margin-top: 2%;
 }
 
 .visualization {
@@ -174,5 +168,9 @@
 
 .showBorders {
     height: 600px;
-    border: 1px solid var(--middleGray);
+}
+
+.pullRight {
+    display: flex;
+    justify-content: flex-end;
 }

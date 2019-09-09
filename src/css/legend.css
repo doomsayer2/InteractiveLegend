@@ -8,3 +8,16 @@
     margin-right: 15px;
     margin-top: 5px;
 }
+
+/* hT --> highlight Text */
+.hT {
+    border-radius: 8px;
+    background: #C51B7D;
+    color: white;
+    padding: 3px;
+}
+
+/* Changes made to Ant Design */
+.ant-steps-item-wait {
+    opacity: 0.2;
+}
