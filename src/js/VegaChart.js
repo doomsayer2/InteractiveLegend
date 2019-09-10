@@ -17,7 +17,7 @@ export default class VegaChart extends Component {
         initialSize && initialSize.height
           ? initialSize.height
           : fallbackSize.height,
-      cfg: getData(props.mode)
+      cfg: getData()
     };
     this.updateDimensions = this.updateDimensions.bind(this);
   }
@@ -52,11 +52,12 @@ export default class VegaChart extends Component {
       !equal(this.props.mode, prevProps.mode) ||
       !equal(this.props.view, prevProps.view)
     ) {
-      this.setState({ cfg: getData(this.props.mode) });
+      this.setState({ cfg: getData() });
     }
   }
 
   render() {
+    console.log(this.state.cfg, this.state.width, this.state.height);
     return (
       <div>
         <VegaLite
