@@ -6,7 +6,7 @@ const StepContent = ({ content }) => {
 
     return (
         <Fragment>
-            <span>{contentHTML}</span>
+            {contentHTML}
         </Fragment>
     )
 };
