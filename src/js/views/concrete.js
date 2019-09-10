@@ -128,7 +128,7 @@ export class ConcreteDataProvider {
     this.hint_1 = {
       hintID: 1,
       text: {
-        h1: `<div class"vizHint">${TEXTS.ONE}</div>`
+        h1: `<div class="vizHint">${TEXTS.ONE}</div>`
       },
       group: `${TEXTGROUPS.g1}`
     };
@@ -136,7 +136,7 @@ export class ConcreteDataProvider {
     this.hint_2 = {
       hintID: 2,
       text: {
-        h2: `<div class"vizHint">${TEXTS.TWO}</div>`
+        h2: `<div class="vizHint">${TEXTS.TWO}</div>`
       },
       group: `${TEXTGROUPS.g1}`
     };
@@ -144,7 +144,7 @@ export class ConcreteDataProvider {
     this.hint_3 = {
       hintID: 3,
       text: {
-        h3: `<div class"vizHint">${TEXTS.THREE}</div>`
+        h3: `<div class="vizHint">${TEXTS.THREE}</div>`
       },
       group: `${TEXTGROUPS.g1}`
     };
@@ -152,7 +152,7 @@ export class ConcreteDataProvider {
     this.hint_4 = {
       hintID: 4,
       text: {
-        h4: `<div class"vizHint">${TEXTS.FOUR}</div>`
+        h4: `<div class="vizHint">${TEXTS.FOUR}</div>`
       },
       group: `${TEXTGROUPS.g2}`
     };
@@ -160,7 +160,7 @@ export class ConcreteDataProvider {
     this.hint_5 = {
       hintID: 5,
       text: {
-        h5: `<div class"vizHint">${TEXTS.FIVE}</div>`
+        h5: `<div class="vizHint">${TEXTS.FIVE}</div>`
       },
       group: `${TEXTGROUPS.g2}`
     };
@@ -168,7 +168,7 @@ export class ConcreteDataProvider {
     this.hint_6 = {
       hintID: 6,
       text: {
-        h6: `<div class"vizHint">${TEXTS.SIX}</div>`
+        h6: `<div class="vizHint">${TEXTS.SIX}</div>`
       },
       group: `${TEXTGROUPS.g2}`
     };
@@ -184,27 +184,27 @@ export class ConcreteDataProvider {
       ],
       text: [
         {
-          h1: `<div class"vizHint">${TEXTS.ONE}</div>`,
+          h1: `<div class="vizHint">${TEXTS.ONE}</div>`,
           group: `${TEXTGROUPS.g2}`
         },
         {
-          h2: `<div class"vizHint">${TEXTS.TWO}</div>`,
+          h2: `<div class="vizHint">${TEXTS.TWO}</div>`,
           group: `${TEXTGROUPS.g2}`
         },
         {
-          h3: `<div class"vizHint">${TEXTS.THREE}</div>`,
+          h3: `<div class="vizHint">${TEXTS.THREE}</div>`,
           group: `${TEXTGROUPS.g2}`
         },
         {
-          h4: `<div class"vizHint">${TEXTS.FOUR}</div>`,
+          h4: `<div class="vizHint">${TEXTS.FOUR}</div>`,
           group: `${TEXTGROUPS.g2}`
         },
         {
-          h5: `<div class"vizHint">${TEXTS.FIVE}</div>`,
+          h5: `<div class="vizHint">${TEXTS.FIVE}</div>`,
           group: `${TEXTGROUPS.g2}`
         },
         {
-          h6: `<div class"vizHint">${TEXTS.SIX}</div>`,
+          h6: `<div class="vizHint">${TEXTS.SIX}</div>`,
           group: `${TEXTGROUPS.g2}`
         },
       ]

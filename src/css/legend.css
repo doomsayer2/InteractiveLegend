@@ -9,15 +9,29 @@
     margin-top: 5px;
 }
 
+.vizHint {
+    font-size: 0.9em;
+}
+
 /* hT --> highlight Text */
 .hT {
     border-radius: 8px;
     background: #C51B7D;
     color: white;
-    padding: 3px;
+    padding: 2px;
+    font-size: 0.9em;
+    white-space: nowrap;
 }
 
 /* Changes made to Ant Design */
+.ant-steps-item {
+    margin-top: 3%;
+}
+
 .ant-steps-item-wait {
     opacity: 0.2;
+}
+
+.ant-steps-item-wait:hover {
+    opacity: 0.8;
 }

@@ -31,8 +31,8 @@ const steps = [
   },
 ];
 
-const hints = getAllHints();
-console.log(hints);
+const hintsText = getAllHints().text;
+console.log(hintsText);
 
 export default class Legend extends Component {
   constructor(props) {
@@ -73,11 +73,11 @@ export default class Legend extends Component {
             onChange={this.onChange}
             current={mode}
           >
-            {steps.map((item, idx) => (
+            {hintsText.map((item, idx) => (
               <Step
                 id={`step-${idx}`}
                 key={idx}
-                title={<StepContent content={item.content} />}
+                title={<StepContent content={item[`h${idx + 1}`]} />}
                 status={mode === idx ? 'process' : 'wait'}
                 onClick={() => this.props.cb(idx)}
               />
