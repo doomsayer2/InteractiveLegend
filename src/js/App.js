@@ -2,11 +2,11 @@ import React, { Component, Fragment } from 'react';
 import VegaChart from './VegaChart';
 import Legend from './Legend';
 import Greeting from './components/Greeting';
+import { LoadingIndicator, Empty } from './shared/util';
+import { CONCRETE } from './shared/constants';
 
 import '../css/main.css';
 import 'intro.js/introjs.css';
-import { CONCRETE } from './shared/constants';
-import { LoadingIndicator, Empty } from './shared/util';
 
 // Antd
 import { Row, Col, Divider, PageHeader, Button, message } from 'antd';

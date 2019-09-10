@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StepContent from './components/StepContent';
 import equal from 'fast-deep-equal';
-import { getData } from './shared/DataProvider';
+import { getData, getAllHints } from './shared/DataProvider';
 import '../css/legend.css';
 
 import { Steps, Row } from 'antd';
@@ -30,6 +30,9 @@ const steps = [
     content: 'Lorem ipsum dolor sit amet, consetetur <span class="hT">sadipscing</span> elitr, sed diam'
   },
 ];
+
+const hints = getAllHints();
+console.log(hints);
 
 export default class Legend extends Component {
   constructor(props) {
@@ -74,8 +77,7 @@ export default class Legend extends Component {
               <Step
                 id={`step-${idx}`}
                 key={idx}
-                title={item.title}
-                description={<StepContent content={item.content} />}
+                title={<StepContent content={item.content} />}
                 status={mode === idx ? 'process' : 'wait'}
                 onClick={() => this.props.cb(idx)}
               />

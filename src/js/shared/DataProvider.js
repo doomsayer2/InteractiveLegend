@@ -3,7 +3,6 @@ import { ConcreteDataProvider } from '../views/concrete';
 
 const cp = new ConcreteDataProvider();
 const chartID = 1;
-const hintID = 1;
 
 // export function getDataOLD(id) {
 //   let cp = new ConcreteDataProviderOLD();
@@ -20,6 +19,10 @@ export function getData() {
     return cp.getVizData(chartID);
 }
 
-export function getHintData() {
+export function getHintData(hintID = 1) {
   return cp.getSingleHintData(hintID);
+}
+
+export function getAllHints() {
+  return cp.getAllHintData();
 }

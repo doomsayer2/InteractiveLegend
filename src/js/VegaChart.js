@@ -57,7 +57,6 @@ export default class VegaChart extends Component {
   }
 
   render() {
-    console.log(this.state.cfg, this.state.width, this.state.height);
     return (
       <div>
         <VegaLite
