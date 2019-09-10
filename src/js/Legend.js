@@ -7,32 +7,8 @@ import '../css/legend.css';
 import { Steps, Row } from 'antd';
 const { Step } = Steps;
 
-// Temporary will be replace later by props.mode and the .text prop then
-const steps = [
-  {
-    title: 'First',
-    content: 'Lorem ipsum <span class="hT">dolor sit</span> amet, <b>consetetur</b> sadipscing elitr, sed diam nonumy eirmod tempor invidunt'
-  },
-  {
-    title: 'Second',
-    content: 'Lorem ipsum dolor sit amet, <b>consetetur</b> sadipscing elitr, sed diam nonumy eirmod'
-  },
-  {
-    title: 'Third',
-    content: 'Lorem <span class="hT">ipsum</span> dolor sit amet, consetetur sadipscing elitr'
-  },
-  {
-    title: 'Fourth',
-    content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore'
-  },
-  {
-    title: 'Fifth',
-    content: 'Lorem ipsum dolor sit amet, consetetur <span class="hT">sadipscing</span> elitr, sed diam'
-  },
-];
-
+// Do this before in order to make sure we have it
 const hintsText = getAllHints().text;
-console.log(hintsText);
 
 export default class Legend extends Component {
   constructor(props) {
@@ -41,7 +17,6 @@ export default class Legend extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log('previous props', prevProps);
     if (
       !equal(this.props.mode, prevProps.mode) ||
       !equal(this.props.view, prevProps.view)

@@ -6,7 +6,6 @@ import { LoadingIndicator, Empty } from './shared/util';
 import { CONCRETE, MAX_HINTS, VIZ_TITLE, VIZ_DESC } from './shared/constants';
 
 import '../css/main.css';
-import 'intro.js/introjs.css';
 
 // Antd
 import { Row, Col, Divider, PageHeader, Button, message } from 'antd';
