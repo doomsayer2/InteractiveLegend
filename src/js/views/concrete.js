@@ -1,5 +1,6 @@
 const sourceData1 = require('./data/tempOslo.json'); // Oslo Chart data
-// const sourceData2 = require('./data/');
+const sourceData2 = require('./data/tempTallinn.json'); // Tallinn Chart data
+const sourceData3 = require('./data/tempMunich.json'); // Munich Chart data
 
 const TEXTS = {
   ONE: 'Each bar represents a data item.',
@@ -15,13 +16,27 @@ const TEXTS = {
     'In <span class="hT">1996</span>, in all three cities <span class="hT">Oslo, Munich and Tallinn</span> the average temperature was lower than the year before and after.'
 };
 
+const TEXTGROUPS = {
+  g1: 'Reading',
+  g2: 'Using'
+};
+
 export class ConcreteDataProvider {
-  getVizData() {
-    return this.viz;
+  getVizData(chartID) {
+    switch (chartID) {
+      case 1:
+        return this.viz;
+      case 2:
+        return this.viz2;
+      case 3:
+        return this.viz3;
+      default:
+        return this.viz;
+    }
   }
 
-  getHintData(id) {
-    switch (id) {
+  getSingleHintData(hintId) {
+    switch (hintId) {
       case 1:
         return this.hint_1;
       case 2:
@@ -51,11 +66,62 @@ export class ConcreteDataProvider {
         mark: { type: 'bar' },
         encoding: {
           x: { field: 'year', type: 'ordinal', title: 'Year' },
-          y: { field: 'temp', type: 'quantitative', title: 'Average temperature in °C' },
+          y: {
+            field: 'temp',
+            type: 'quantitative',
+            title: 'Average temperature in °C'
+          }
         },
+        title: "Average Temperature progress in Oslo from 1990 to 2018",
       },
       data: {
         values: sourceData1
+      }
+    };
+
+    // Config for the second chart -- here it is
+    this.viz2 = {
+      mark: { type: 'bar' },
+      spec: {
+        mark: { type: 'bar' },
+        encoding: {
+          x: { field: 'year', type: 'ordinal', title: 'Year' },
+          y: {
+            field: 'temp',
+            type: 'quantitative',
+            title: 'Average temperature in °C'
+          },
+          color: {
+            value: "#ff9900"
+          }
+        },
+        title: "Average Temperature progress in Tallinn from 1990 to 2018",
+      },
+      data: {
+        values: sourceData2
+      }
+    };
+
+    // Config for the third chart -- here it is
+    this.viz3 = {
+      mark: { type: 'bar' },
+      spec: {
+        mark: { type: 'bar' },
+        encoding: {
+          x: { field: 'year', type: 'ordinal', title: 'Year' },
+          y: {
+            field: 'temp',
+            type: 'quantitative',
+            title: 'Average temperature in °C'
+          },
+          color: {
+            value: "green"
+          }
+        },
+        title: "Average Temperature progress in Munich, Germany from 1990 to 2018",
+      },
+      data: {
+        values: sourceData3
       }
     };
 
@@ -63,42 +129,48 @@ export class ConcreteDataProvider {
       hintID: 1,
       text: {
         one: `<div class"vizHint">${TEXTS.ONE}</div>`
-      }
+      },
+      group: `${TEXTGROUPS.g1}`
     };
 
     this.hint_2 = {
       hintID: 2,
       text: {
         two: `<div class"vizHint">${TEXTS.TWO}</div>`
-      }
+      },
+      group: `${TEXTGROUPS.g1}`
     };
 
     this.hint_3 = {
       hintID: 3,
       text: {
         three: `<div class"vizHint">${TEXTS.THREE}</div>`
-      }
+      },
+      group: `${TEXTGROUPS.g1}`
     };
 
     this.hint_4 = {
       hintID: 4,
       text: {
         four: `<div class"vizHint">${TEXTS.FOUR}</div>`
-      }
+      },
+      group: `${TEXTGROUPS.g2}`
     };
 
     this.hint_5 = {
       hintID: 5,
       text: {
         five: `<div class"vizHint">${TEXTS.FIVE}</div>`
-      }
+      },
+      group: `${TEXTGROUPS.g2}`
     };
 
     this.hint_6 = {
       hintID: 6,
       text: {
         six: `<div class"vizHint">${TEXTS.SIX}</div>`
-      }
+      },
+      group: `${TEXTGROUPS.g2}`
     };
 
     this.allHints = {
@@ -110,14 +182,32 @@ export class ConcreteDataProvider {
         this.hint_5.hintID,
         this.hint_6.hintID
       ],
-      text: {
-        one: `<div class"vizHint">${TEXTS.ONE}</div>`,
-        two: `<div class"vizHint">${TEXTS.TWO}</div>`,
-        three: `<div class"vizHint">${TEXTS.THREE}</div>`,
-        four: `<div class"vizHint">${TEXTS.FOUR}</div>`,
-        five: `<div class"vizHint">${TEXTS.FIVE}</div>`,
-        six: `<div class"vizHint">${TEXTS.SIX}</div>`
-      }
+      text: [
+        {
+          one: `<div class"vizHint">${TEXTS.ONE}</div>`,
+          group: `${TEXTGROUPS.g2}`
+        },
+        {
+          two: `<div class"vizHint">${TEXTS.TWO}</div>`,
+          group: `${TEXTGROUPS.g2}`
+        },
+        {
+          three: `<div class"vizHint">${TEXTS.THREE}</div>`,
+          group: `${TEXTGROUPS.g2}`
+        },
+        {
+          four: `<div class"vizHint">${TEXTS.FOUR}</div>`,
+          group: `${TEXTGROUPS.g2}`
+        },
+        {
+          five: `<div class"vizHint">${TEXTS.FIVE}</div>`,
+          group: `${TEXTGROUPS.g2}`
+        },
+        {
+          six: `<div class"vizHint">${TEXTS.SIX}</div>`,
+          group: `${TEXTGROUPS.g2}`
+        }
+      ]
     };
   }
 }
