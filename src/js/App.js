@@ -17,7 +17,7 @@ class App extends Component {
       loading: true, // Used to show the loading indicator of the page
       init: false, // Used to decide if we greet the user or not
       view: CONCRETE, // Decide which Mode we are in or showing for the user
-      mode: 0, // Show at which explain step we are
+      mode: 0 // Show at which explain step we are
     };
 
     // Bindings here
@@ -63,7 +63,7 @@ class App extends Component {
   // }
 
   render() {
-    const { mode } = this.state;
+    const { mode, view } = this.state;
     // noinspection ThisExpressionReferencesGlobalObjectJS
     return (
       <div>
@@ -97,49 +97,57 @@ class App extends Component {
             </div>
             <Row type="flex" justify="end">
               <Col span={24} className="pullRight">
+                <Button
+                  id="previous"
+                  type="primary"
+                  onClick={() => this.changeVis(mode - 1)}
+                  disabled={mode === 0}
+                >
+                  Previous
+                </Button>
+                <Button
+                  id="next"
+                  type="primary"
+                  onClick={() => this.changeVis(mode + 1)}
+                  disabled={mode >= MAX_HINTS - 1}
+                >
+                  Next
+                </Button>
+                {mode >= 5 ? (
+                  <Empty />
+                ) : (
                   <Button
-                    id="previous"
-                    type="primary"
-                    onClick={() => this.changeVis(mode - 1)}
-                    disabled={mode === 0}
+                    id="skip"
+                    type="default"
+                    onClick={() => this.changeVis(-1)}
                   >
-                    Previous
+                    Skip
                   </Button>
-                  <Button
-                    id="next"
-                    type="primary"
-                    onClick={() => this.changeVis(mode + 1)}
-                    disabled={mode >= MAX_HINTS - 1}
-                  >
-                    Next
-                  </Button>
-                  {mode >= 5 ? (
-                    <Empty />
-                  ) : (
-                    <Button
-                      id="skip"
-                      type="default"
-                      onClick={() => this.changeVis(-1)}
-                    >
-                      Skip
-                    </Button>
-                  )}
+                )}
               </Col>
             </Row>
             <Divider />
             <div id="vizMain">
               <Row type="flex" justify="space-between">
-                <Col span={16} className="showBorders">
-                  <div className="visualization">
-                    <VegaChart mode={mode} view={this.state.view} />
-                  </div>
+                <Col span={16}>
+                  <Row>
+                    <Col span={24}>
+                      <VegaChart mode={mode} view={view} chartID={1} />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col span={24}>
+                      <VegaChart mode={mode} view={view} chartID={2} />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col span={24}>
+                      <VegaChart mode={mode} view={view} chartID={3} />
+                    </Col>
+                  </Row>
                 </Col>
-                <Col span={8} className="showBorders">
-                  <Legend
-                    mode={mode}
-                    view={this.state.view}
-                    cb={i => this.changeVis(i)}
-                  />
+                <Col span={8}>
+                  <Legend mode={mode} view={view} cb={i => this.changeVis(i)} />
                 </Col>
               </Row>
             </div>

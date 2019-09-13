@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import VegaLite from 'react-vega-lite';
 import equal from 'fast-deep-equal';
 import { getData } from './shared/DataProvider';
@@ -6,8 +6,10 @@ import { getData } from './shared/DataProvider';
 export default class VegaChart extends Component {
   constructor(props) {
     super(props);
+
     let initialSize = VegaChart.getScreenAppropriateSize(window.innerWidth);
     let fallbackSize = { width: 500, height: 500 };
+
     this.state = {
       width:
         initialSize && initialSize.width
@@ -17,8 +19,9 @@ export default class VegaChart extends Component {
         initialSize && initialSize.height
           ? initialSize.height
           : fallbackSize.height,
-      cfg: getData()
+      cfg: getData(props.chartID)
     };
+
     this.updateDimensions = this.updateDimensions.bind(this);
   }
 
@@ -52,20 +55,21 @@ export default class VegaChart extends Component {
       !equal(this.props.mode, prevProps.mode) ||
       !equal(this.props.view, prevProps.view)
     ) {
-      this.setState({ cfg: getData() });
+      this.setState({ cfg: getData(this.props.chartID) });
     }
   }
 
   render() {
     return (
-      <div>
+      <Fragment>
         <VegaLite
           width={this.state.width}
           height={this.state.height}
           spec={this.state.cfg.spec}
           data={this.state.cfg.data}
+          className={`vegaViz${this.props.chartID}`}
         />
-      </div>
+      </Fragment>
     );
   }
 }
