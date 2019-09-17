@@ -3,7 +3,7 @@ import VegaChart from './VegaChart';
 import Legend from './Legend';
 import Greeting from './components/Greeting';
 import ModeSwitcher from './components/ModeSwitcher';
-import { LoadingIndicator, Empty } from './shared/util';
+import { LoadingIndicator } from './shared/util';
 import { CONCRETE, MAX_HINTS, VIZ_TITLE, VIZ_DESC } from './shared/constants';
 
 import '../css/main.css';
@@ -117,17 +117,6 @@ class App extends Component {
                 >
                   Next
                 </Button>
-                {mode >= 5 ? (
-                  <Empty />
-                ) : (
-                  <Button
-                    id="skip"
-                    type="default"
-                    onClick={() => this.changeVis(-1)}
-                  >
-                    Skip
-                  </Button>
-                )}
               </Col>
             </Row>
             <Divider />
