@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import VegaChart from './VegaChart';
 import Legend from './Legend';
 import Greeting from './components/Greeting';
+import ModeSwitcher from './components/ModeSwitcher';
 import { LoadingIndicator, Empty } from './shared/util';
 import { CONCRETE, MAX_HINTS, VIZ_TITLE, VIZ_DESC } from './shared/constants';
 
@@ -81,7 +82,10 @@ class App extends Component {
               onBack={() => this.setState({ init: true })}
               title="Onboarding Test"
               subTitle="(C) Universtiy of applied sciences Austria"
-              extra={[<p>FH LOGO</p>, <p>Subtitle</p>]}
+              extra={[
+                <p>FH LOGO</p>,
+                <ModeSwitcher />
+              ]}
             />
             <div id="vizHeader" style={{ marginTop: 40 + 'px' }}>
               <Row type="flex" justify="start">
