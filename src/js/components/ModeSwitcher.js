@@ -1,8 +1,11 @@
 import React, { Fragment } from 'react';
-import { Switch, Icon } from 'antd';
+import { Switch, Tooltip } from 'antd';
 import * as d3 from 'd3';
 
 const ModeSwitcher = () => {
+  const tooltipText =
+    'Toggling the button will show either all hints or let you explore them step by step. However always the current one you have active - stays active';
+
   const toggle = (checked, event) => {
     if (checked) {
       // TODO OTHER IDEA NOW:
@@ -15,13 +18,15 @@ const ModeSwitcher = () => {
 
   return (
     <Fragment>
-      <small style={{ marginRight: 10 + 'px' }}>Show all</small>
-      <Switch
-        checkedChildren={'On'}
-        unCheckedChildren={'Off'}
-        defaultChecked={false}
-        onClick={toggle}
-      ></Switch>
+      <Tooltip title={tooltipText} arrowPointAtCenter>
+        <small style={{ marginRight: 10 + 'px' }}>All Hints</small>
+        <Switch
+          checkedChildren={'On'}
+          unCheckedChildren={'Off'}
+          defaultChecked={false}
+          onClick={toggle}
+        ></Switch>
+      </Tooltip>
     </Fragment>
   );
 };

@@ -175,6 +175,10 @@
     opacity: 1;
 }
 
+.ant-tooltip-inner {
+    font-size: 0.7em;
+}
+
 /* MOBILE STUFF - Just in case someone does this...*/
 @media only screen and (max-device-width : 500px) {
     .ant-col {
