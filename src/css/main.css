@@ -166,11 +166,22 @@
     border-color: white;
 }
 
-.showBorders {
-    height: 600px;
-}
-
 .pullRight {
     display: flex;
     justify-content: flex-end;
+}
+
+.makeVisible {
+    opacity: 1;
+}
+
+.ant-tooltip-inner {
+    font-size: 0.7em;
+}
+
+/* MOBILE STUFF - Just in case someone does this...*/
+@media only screen and (max-device-width : 500px) {
+    .ant-col {
+        width: auto !important;
+    }
 }

@@ -2,11 +2,12 @@ import React, { Component, Fragment } from 'react';
 import VegaChart from './VegaChart';
 import Legend from './Legend';
 import Greeting from './components/Greeting';
-import { LoadingIndicator, Empty } from './shared/util';
-import { CONCRETE, MAX_HINTS, VIZ_TITLE, VIZ_DESC } from './shared/constants';
+import ModeSwitcher from './components/ModeSwitcher';
+import { d3Showcase } from './shared/d3Manipulations';
+import { LoadingIndicator } from './shared/util';
+import { CONCRETE, MAX_HINTS, VIZ_DESC } from './shared/constants';
 
 import '../css/main.css';
-import 'intro.js/introjs.css';
 
 // Antd
 import { Row, Col, Divider, PageHeader, Button, message } from 'antd';
@@ -18,7 +19,7 @@ class App extends Component {
       loading: true, // Used to show the loading indicator of the page
       init: false, // Used to decide if we greet the user or not
       view: CONCRETE, // Decide which Mode we are in or showing for the user
-      mode: 0, // Show at which explain step we are
+      mode: 0 // Show at which explain step we are
     };
 
     // Bindings here
@@ -64,7 +65,7 @@ class App extends Component {
   // }
 
   render() {
-    const { mode } = this.state;
+    const { mode, view } = this.state;
     // noinspection ThisExpressionReferencesGlobalObjectJS
     return (
       <div>
@@ -82,14 +83,14 @@ class App extends Component {
               onBack={() => this.setState({ init: true })}
               title="Onboarding Test"
               subTitle="(C) Universtiy of applied sciences Austria"
-              extra={[<p>FH LOGO</p>, <p>Subtitle</p>]}
+              extra={[<p>FH LOGO</p>, <ModeSwitcher />]}
             />
             <div id="vizHeader" style={{ marginTop: 40 + 'px' }}>
-              <Row type="flex" justify="start">
+              {/* <Row type="flex" justify="start">
                 <Col span={24}>
                   <h1>{VIZ_TITLE}</h1>
                 </Col>
-              </Row>
+              </Row> */}
               <Row type="flex" justify="start">
                 <Col span={24}>
                   <h2>{VIZ_DESC}</h2>
@@ -98,49 +99,46 @@ class App extends Component {
             </div>
             <Row type="flex" justify="end">
               <Col span={24} className="pullRight">
-                  <Button
-                    id="previous"
-                    type="primary"
-                    onClick={() => this.changeVis(mode - 1)}
-                    disabled={mode === 0}
-                  >
-                    Previous
-                  </Button>
-                  <Button
-                    id="next"
-                    type="primary"
-                    onClick={() => this.changeVis(mode + 1)}
-                    disabled={mode >= MAX_HINTS - 1}
-                  >
-                    Next
-                  </Button>
-                  {mode >= 5 ? (
-                    <Empty />
-                  ) : (
-                    <Button
-                      id="skip"
-                      type="default"
-                      onClick={() => this.changeVis(-1)}
-                    >
-                      Skip
-                    </Button>
-                  )}
+                <Button
+                  id="previous"
+                  type="primary"
+                  onClick={() => this.changeVis(mode - 1)}
+                  disabled={mode === 0}
+                >
+                  Previous
+                </Button>
+                <Button
+                  id="next"
+                  type="primary"
+                  onClick={() => this.changeVis(mode + 1)}
+                  disabled={mode >= MAX_HINTS - 1}
+                >
+                  Next
+                </Button>
               </Col>
             </Row>
             <Divider />
             <div id="vizMain">
               <Row type="flex" justify="space-between">
-                <Col span={16} className="showBorders">
-                  <div className="visualization">
-                    <VegaChart mode={mode} view={this.state.view} />
-                  </div>
+                <Col span={16}>
+                  <Row>
+                    <Col span={24}>
+                      <VegaChart mode={mode} view={view} chartID={1} />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col span={24}>
+                      <VegaChart mode={mode} view={view} chartID={2} />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col span={24}>
+                      <VegaChart mode={mode} view={view} chartID={3} />
+                    </Col>
+                  </Row>
                 </Col>
-                <Col span={8} className="showBorders">
-                  <Legend
-                    mode={mode}
-                    view={this.state.view}
-                    cb={i => this.changeVis(i)}
-                  />
+                <Col span={8}>
+                  <Legend mode={mode} view={view} cb={i => this.changeVis(i)} />
                 </Col>
               </Row>
             </div>

@@ -2,7 +2,6 @@
 import { ConcreteDataProvider } from '../views/concrete';
 
 const cp = new ConcreteDataProvider();
-const chartID = 1;
 
 // export function getDataOLD(id) {
 //   let cp = new ConcreteDataProviderOLD();
@@ -15,7 +14,7 @@ const chartID = 1;
  * Value of '2' -- returns second chart data,
  * Value of '3' -- returns third chart data,
  */
-export function getData() {
+export function getData(chartID = 1) {
     return cp.getVizData(chartID);
 }
 
