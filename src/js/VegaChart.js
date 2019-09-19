@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import VegaLite from 'react-vega-lite';
-import equal from 'fast-deep-equal';
 import { getData } from './shared/DataProvider';
 
 export default class VegaChart extends Component {
@@ -48,15 +47,6 @@ export default class VegaChart extends Component {
     let size = VegaChart.getScreenAppropriateSize(window.innerWidth);
     if (size && size.width && size.height)
       this.setState({ width: size.width, height: size.height });
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (
-      !equal(this.props.mode, prevProps.mode) ||
-      !equal(this.props.view, prevProps.view)
-    ) {
-      this.setState({ cfg: getData(this.props.chartID) });
-    }
   }
 
   render() {

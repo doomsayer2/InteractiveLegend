@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import StepContent from './components/StepContent';
 import equal from 'fast-deep-equal';
+import StepContent from './components/StepContent';
+import { makeLegendBoxes } from './shared/d3Manipulations';
 import { getData, getAllHints } from './shared/DataProvider';
 import '../css/legend.css';
 
@@ -14,6 +15,10 @@ export default class Legend extends Component {
   constructor(props) {
     super(props);
     this.state = { text: getData(props.mode).text };
+  }
+
+  componentDidMount() {
+    makeLegendBoxes();
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -33,7 +38,7 @@ export default class Legend extends Component {
       : 'txtModeBtn btn btn-secondary';
   }
 
-  onChange = (current) => {
+  onChange = current => {
     console.log('onChange:', current);
   };
 
@@ -42,11 +47,12 @@ export default class Legend extends Component {
 
     return (
       <div>
-        <Row type="flex" justify="start" style={{marginTop: 20 + 'px'}}>
+        <Row type="flex" justify="start" style={{ marginTop: 20 + 'px' }}>
           <Steps
             direction="vertical"
             onChange={this.onChange}
             current={mode}
+            className={'stepsContainer'}
           >
             {hintsText.map((item, idx) => (
               <Step

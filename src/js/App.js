@@ -3,8 +3,9 @@ import VegaChart from './VegaChart';
 import Legend from './Legend';
 import Greeting from './components/Greeting';
 import ModeSwitcher from './components/ModeSwitcher';
+import { d3Showcase } from './shared/d3Manipulations';
 import { LoadingIndicator } from './shared/util';
-import { CONCRETE, MAX_HINTS, VIZ_TITLE, VIZ_DESC } from './shared/constants';
+import { CONCRETE, MAX_HINTS, VIZ_DESC } from './shared/constants';
 
 import '../css/main.css';
 
@@ -82,17 +83,14 @@ class App extends Component {
               onBack={() => this.setState({ init: true })}
               title="Onboarding Test"
               subTitle="(C) Universtiy of applied sciences Austria"
-              extra={[
-                <p>FH LOGO</p>,
-                <ModeSwitcher />
-              ]}
+              extra={[<p>FH LOGO</p>, <ModeSwitcher />]}
             />
             <div id="vizHeader" style={{ marginTop: 40 + 'px' }}>
-              <Row type="flex" justify="start">
+              {/* <Row type="flex" justify="start">
                 <Col span={24}>
                   <h1>{VIZ_TITLE}</h1>
                 </Col>
-              </Row>
+              </Row> */}
               <Row type="flex" justify="start">
                 <Col span={24}>
                   <h2>{VIZ_DESC}</h2>

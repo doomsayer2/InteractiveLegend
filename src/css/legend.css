@@ -36,3 +36,14 @@
 .ant-steps-item-wait:hover {
     opacity: 0.8;
 }
+
+.ant-steps-item-tail {
+    display: none;
+}
+
+#reading, #using {
+    border: 1px dashed #C51B7D;
+    padding: 2%;
+    margin-bottom: 10px;    
+}
+
