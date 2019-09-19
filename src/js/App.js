@@ -3,7 +3,6 @@ import VegaChart from './VegaChart';
 import Legend from './Legend';
 import Greeting from './components/Greeting';
 import ModeSwitcher from './components/ModeSwitcher';
-import { d3Showcase } from './shared/d3Manipulations';
 import { LoadingIndicator } from './shared/util';
 import { CONCRETE, MAX_HINTS, VIZ_DESC } from './shared/constants';
 
