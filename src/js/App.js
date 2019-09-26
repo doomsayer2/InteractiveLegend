@@ -96,6 +96,7 @@ class App extends Component {
                 </Col>
               </Row>
             </div>
+            <Divider />
             <Row type="flex" justify="end">
               <Col span={24} className="pullRight">
                 <Button
@@ -116,7 +117,6 @@ class App extends Component {
                 </Button>
               </Col>
             </Row>
-            <Divider />
             <div id="vizMain">
               <Row type="flex" justify="space-between">
                 <Col span={16}>

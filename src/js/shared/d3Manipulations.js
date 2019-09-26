@@ -41,7 +41,7 @@ const d3Showcase = () => {
     console.log('Element: ', d3.select(paths.nodes()[3]));
   }, 1);
 
-  return Math.floor(Math.random() * Math.floor(5));
+  return 1;
 };
 
 const makeLegendBoxes = () => {
