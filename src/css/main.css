@@ -18,6 +18,10 @@
     font-size: large;
 }
 
+#vizControls {
+    margin: 2% 0 2% 0;
+}
+
 /*---- MAIN LAYOUT ------------------ */
 .row {
     display: flex;

@@ -3,6 +3,7 @@ import VegaChart from './VegaChart';
 import Legend from './Legend';
 import Greeting from './components/Greeting';
 import ModeSwitcher from './components/ModeSwitcher';
+import FinishStudy from './components/FinishStudy';
 import { LoadingIndicator } from './shared/util';
 import { CONCRETE, MAX_HINTS, VIZ_DESC } from './shared/constants';
 
@@ -142,61 +143,9 @@ class App extends Component {
               </Row>
             </div>
             <div id="vizControls" style={{ marginTop: 40 + 'px' }}>
-              <p>Probably a Footer or so...</p>
+              <FinishStudy mode={mode}/>
             </div>
           </Fragment>
-
-          //     <div className="column left" id="legend">
-          //       <div>
-          //         <Legend
-          //           mode={this.state.mode}
-          //           view={this.state.view}
-          //           cb={i => this.changeVis(i)}
-          //         />
-          //       </div>
-          //     </div>
-          //     <div className="double-column right">
-          //       <div className="visualization">
-          //         <BarChart mode={this.state.mode} view={this.state.view} />
-          //       </div>
-          //     </div>
-          //     <div className="row 2">
-          //       <div className="triple-column">
-          //         <div className={'controlPanel'}>
-          //           <button
-          //             id="previous"
-          //             className={'btn btn-info'}
-          //             onClick={() => this.changeVis(this.state.mode - 1)}
-          //             disabled={this.state.mode === 1}
-          //           >
-          //             {' '}
-          //             Previous
-          //           </button>
-          //           <button
-          //             id="next"
-          //             className={'btn btn-info'}
-          //             onClick={() => this.changeVis(this.state.mode + 1)}
-          //             disabled={this.state.mode >= 5}
-          //           >
-          //             {' '}
-          //             Next
-          //           </button>
-          //           {this.state.mode >= 5 ? (
-          //             <Empty />
-          //           ) : (
-          //             <button
-          //               id="skip"
-          //               className={'btn btn-secondary'}
-          //               onClick={() => this.changeVis(-1)}
-          //             >
-          //               {' '}
-          //               Skip
-          //             </button>
-          //           )}
-          //         </div>
-          //       </div>
-          //     </div>
-          //   </div>
         )}
       </div>
     );
