@@ -1,11 +1,14 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Divider, Row, Col, Avatar, Button } from 'antd';
+import { MAX_HINTS } from '../shared/constants';
 
 const FinsihStudy = ({ mode }) => {
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    localStorage.getItem('');
+    if (mode === MAX_HINTS - 1) {
+      setEnabled(true);
+    }
   });
 
   const onFinishTest = () => {
@@ -35,7 +38,7 @@ const FinsihStudy = ({ mode }) => {
       </Row>
       <Row type="flex" justify="start">
         <Col span={4} push={20}>
-          <Button disabled={enabled} type="primary" shape="round" block onClick={onFinishTest}>
+          <Button disabled={!enabled} type="primary" shape="round" block onClick={onFinishTest}>
             Done
           </Button>
         </Col>
