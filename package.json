@@ -16,7 +16,8 @@
     "react-vega-lite": "^2.0.2",
     "vega": "^5.3.5",
     "vega-lib": "^4.4.0",
-    "vega-lite": "^3.2.1"
+    "vega-lite": "^3.2.1",
+    "vega-tooltip": "^0.19.1"
   },
   "scripts": {
     "start": "react-scripts start",

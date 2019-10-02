@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import VegaLite from 'react-vega-lite';
+import { Handler } from 'vega-tooltip';
 import { getData } from './shared/DataProvider';
 
 export default class VegaChart extends Component {
@@ -57,6 +58,7 @@ export default class VegaChart extends Component {
           height={this.state.height}
           spec={this.state.cfg.spec}
           data={this.state.cfg.data}
+          tooltip={new Handler().call}
           className={`vegaViz${this.props.chartID}`}
         />
       </Fragment>

@@ -22,6 +22,7 @@
     margin: 2% 0 2% 0;
 }
 
+
 /*---- MAIN LAYOUT ------------------ */
 .row {
     display: flex;
@@ -181,6 +182,11 @@
 
 .ant-tooltip-inner {
     font-size: 0.7em;
+}
+
+/* vega-tooltip library changes */
+td {
+    font-size: 0.9rem;
 }
 
 /* MOBILE STUFF - Just in case someone does this...*/
