@@ -18,6 +18,11 @@
     font-size: large;
 }
 
+#vizControls {
+    margin: 2% 0 2% 0;
+}
+
+
 /*---- MAIN LAYOUT ------------------ */
 .row {
     display: flex;
@@ -142,6 +147,9 @@
 }
 
 /*---- OTHER ------------------ */
+#onboardingLogo {
+    max-width: 100px;
+}
 
 .centered {
     position: fixed;
@@ -177,6 +185,11 @@
 
 .ant-tooltip-inner {
     font-size: 0.7em;
+}
+
+/* vega-tooltip library changes */
+td {
+    font-size: 0.9rem;
 }
 
 /* MOBILE STUFF - Just in case someone does this...*/

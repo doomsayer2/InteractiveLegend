@@ -14,6 +14,12 @@ const LoadingIndicator = props => {
   );
 };
 
+const OnboardingLogo = () => {
+  return (
+    <img id="onboardingLogo" alt="Onboarding" src="onboarding_logo.svg" />
+  );
+}
+
 /**
  * (C) Karl Rathmanner
  * This method moves all elements with the given id into the parent container if it's on the same
@@ -27,4 +33,4 @@ const moveElementsToNewParent = (ids, targetId) => {
   });
 };
 
-export { Empty, LoadingIndicator, moveElementsToNewParent };
+export { Empty, LoadingIndicator, OnboardingLogo ,moveElementsToNewParent };
