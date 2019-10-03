@@ -82,7 +82,7 @@ class App extends Component {
             <PageHeader
               title="Onboarding Test"
               subTitle="(C) Universtiy of applied sciences Austria"
-              extra={[<OnboardingLogo />, <ModeSwitcher />]}
+              extra={[<OnboardingLogo />]}
             />
             <div id="vizHeader" style={{ marginTop: 40 + 'px' }}>
               {/* <Row type="flex" justify="start">
@@ -99,6 +99,7 @@ class App extends Component {
             <Divider />
             <Row type="flex" justify="end">
               <Col span={24} className="pullRight">
+                <ModeSwitcher />
                 <Button
                   id="previous"
                   type="primary"
@@ -142,7 +143,7 @@ class App extends Component {
               </Row>
             </div>
             <div id="vizControls" style={{ marginTop: 40 + 'px' }}>
-              <FinishStudy mode={mode}/>
+              <FinishStudy mode={mode} />
             </div>
           </Fragment>
         )}
