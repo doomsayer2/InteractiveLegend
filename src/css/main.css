@@ -147,6 +147,9 @@
 }
 
 /*---- OTHER ------------------ */
+#onboardingLogo {
+    max-width: 100px;
+}
 
 .centered {
     position: fixed;
