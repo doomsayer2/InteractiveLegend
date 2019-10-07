@@ -41,7 +41,7 @@ export default class VegaChart extends Component {
       return { width: 300, height: 120 };
     if (windowWidth > 992 && windowWidth <= 1200)
       return { width: 400, height: 150 };
-    if (windowWidth > 1200) return { width: 400, height: 150 };
+    if (windowWidth > 1200) return { width: 700, height: 150 };
   }
 
   updateDimensions() {
