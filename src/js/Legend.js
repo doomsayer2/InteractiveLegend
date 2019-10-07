@@ -14,7 +14,7 @@ const hintsText = getAllHints().text;
 export default class Legend extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: getData(props.mode).text };
+    this.state = { data: getData(props.mode).data };
   }
 
   componentDidMount() {
@@ -23,11 +23,10 @@ export default class Legend extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (
-      !equal(this.props.mode, prevProps.mode) ||
-      !equal(this.props.view, prevProps.view)
+      !equal(this.props.mode, prevProps.mode)
     ) {
       this.setState({
-        text: getData(this.props.mode).text
+        data: getData(this.props.mode).data
       });
     }
   }

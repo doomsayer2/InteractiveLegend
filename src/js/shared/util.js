@@ -1,9 +1,5 @@
 import React from 'react';
 
-const Empty = () => {
-  return <span />;
-};
-
 const LoadingIndicator = props => {
   return (
     <div className={props.css}>
@@ -33,4 +29,4 @@ const moveElementsToNewParent = (ids, targetId) => {
   });
 };
 
-export { Empty, LoadingIndicator, OnboardingLogo ,moveElementsToNewParent };
+export { LoadingIndicator, OnboardingLogo ,moveElementsToNewParent };
