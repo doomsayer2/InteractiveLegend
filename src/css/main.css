@@ -148,6 +148,9 @@
 
 /*---- OTHER ------------------ */
 #onboardingLogo {
+    position: absolute;
+    top: 0%;
+    right: 90px;
     max-width: 100px;
 }
 
