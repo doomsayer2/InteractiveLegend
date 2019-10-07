@@ -17,7 +17,7 @@ class App extends Component {
     super(props, context);
     this.state = {
       loading: true, // Used to show the loading indicator of the page
-      init: false, // Used to decide if we greet the user or not
+      init: true, // Used to decide if we greet the user or not
       view: CONCRETE, // Decide which Mode we are in or showing for the user
       mode: 0 // Show at which explain step we are
     };
@@ -72,11 +72,11 @@ class App extends Component {
         {this.state.loading ? (
           <LoadingIndicator css="centered" />
         ) : this.state.init ? (
-          <div className="App row">
-            <div className="column" style={{ marginTop: 10 + '%' }}>
+          <Row type="flex" justify="start">
+            <Col span={24} style={{ marginTop: 10 + '%' }}>
               <Greeting startMainApp={this.startMainApp} />
-            </div>
-          </div>
+            </Col>
+          </Row>
         ) : (
           <Fragment>
             <PageHeader

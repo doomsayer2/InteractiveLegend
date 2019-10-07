@@ -151,6 +151,11 @@
     max-width: 100px;
 }
 
+#fhLogo {
+    max-width: 100px;
+    margin-top: -30px;
+}
+
 .centered {
     position: fixed;
     top: 50%;
