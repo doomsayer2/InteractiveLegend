@@ -10,18 +10,14 @@ const d3Showcase = () => {
     console.log('Bar properties: ', oneBar.node().getBoundingClientRect());
     console.log(oneBar.node().getBBox());
 
-    oneBar
-      .append('cricle')
-      .attr('r', 30)
-      .attr('cy', 65);
-
     const hint1Group = d3
       .select('.vegaViz1 > svg')
       .select('.mark-rect')
       .append('g')
       .on('click', function(d) {
-          alert('Hello');
+        d3.select(this).attr("visibility", "hidden");
       });
+
 
     hint1Group
       .append('circle')
@@ -37,6 +33,14 @@ const d3Showcase = () => {
       .attr('text-anchor', 'middle')
       .attr('fill', 'white')
       .text('1');
+      hint1Group.append('rect')
+      .attr('width', oneBarBox.width)
+      .attr('height', oneBarBox.height)
+      .attr('x', oneBarBox.x)
+      .attr('y', oneBarBox.y)
+      .attr('fill', 'none')
+      .attr('stroke', '#C51B7D')
+      .attr('stroke-width', 2);
 
     console.log('Element: ', d3.select(paths.nodes()[3]));
   }, 1);

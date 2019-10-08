@@ -4,13 +4,15 @@ import Legend from './Legend';
 import Greeting from './components/Greeting';
 import ModeSwitcher from './components/ModeSwitcher';
 import FinishStudy from './components/FinishStudy';
-import { LoadingIndicator, OnboardingLogo } from './shared/util';
+import Header from './components/Header';
+import { d3Showcase } from './shared/d3Manipulations';
+import { LoadingIndicator } from './shared/util';
 import { CONCRETE, MAX_HINTS, VIZ_DESC } from './shared/constants';
 
 import '../css/main.css';
 
 // Antd
-import { Row, Col, Divider, PageHeader, Button, message } from 'antd';
+import { Row, Col, Divider, Button, message } from 'antd';
 
 class App extends Component {
   constructor(props, context) {
@@ -31,6 +33,11 @@ class App extends Component {
    */
   componentDidMount() {
     this.setState({ loading: false });
+    d3Showcase();
+  }
+
+  componentWillUpdate() {
+    d3Showcase();
   }
 
   /**
@@ -72,18 +79,14 @@ class App extends Component {
         {this.state.loading ? (
           <LoadingIndicator css="centered" />
         ) : this.state.init ? (
-          <div className="App row">
-            <div className="column" style={{ marginTop: 10 + '%' }}>
+          <Row type="flex" justify="start">
+            <Col span={24} style={{ marginTop: 10 + '%' }}>
               <Greeting startMainApp={this.startMainApp} />
-            </div>
-          </div>
+            </Col>
+          </Row>
         ) : (
           <Fragment>
-            <PageHeader
-              title="Onboarding Test"
-              subTitle="(C) Universtiy of applied sciences Austria"
-              extra={[<OnboardingLogo />]}
-            />
+            <Header />
             <div id="vizHeader" style={{ marginTop: 40 + 'px' }}>
               {/* <Row type="flex" justify="start">
                 <Col span={24}>

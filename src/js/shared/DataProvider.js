@@ -1,12 +1,6 @@
-// import { ConcreteDataProviderOLD } from '../views/concrete_old';
 import { ConcreteDataProvider } from '../views/concrete';
 
 const cp = new ConcreteDataProvider();
-
-// export function getDataOLD(id) {
-//   let cp = new ConcreteDataProviderOLD();
-//   return cp.getData(id);
-// }
 
 /**
  * Returns our data for the charts we can specify which data by the parameter value.
