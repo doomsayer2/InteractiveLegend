@@ -5,6 +5,7 @@ import Greeting from './components/Greeting';
 import ModeSwitcher from './components/ModeSwitcher';
 import FinishStudy from './components/FinishStudy';
 import Header from './components/Header';
+import { d3Showcase } from './shared/d3Manipulations';
 import { LoadingIndicator } from './shared/util';
 import { CONCRETE, MAX_HINTS, VIZ_DESC } from './shared/constants';
 
@@ -18,7 +19,7 @@ class App extends Component {
     super(props, context);
     this.state = {
       loading: true, // Used to show the loading indicator of the page
-      init: true, // Used to decide if we greet the user or not
+      init: false, // Used to decide if we greet the user or not
       view: CONCRETE, // Decide which Mode we are in or showing for the user
       mode: 0 // Show at which explain step we are
     };
@@ -32,6 +33,11 @@ class App extends Component {
    */
   componentDidMount() {
     this.setState({ loading: false });
+    d3Showcase();
+  }
+
+  componentWillUpdate() {
+    d3Showcase();
   }
 
   /**
