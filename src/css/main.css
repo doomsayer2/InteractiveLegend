@@ -1,0 +1,94 @@
+/* @import '~antd/dist/antd.css'; */
+@import './custom-antd.css';
+
+/*
+ Definition of colors for theme
+*/
+* {
+    --primaryColor: #e23e57;
+    --hoverColor: #88304E;
+    --secondaryColor: #522546;
+    --backgroundColor: #311D3F;
+    --lightGray: #F0F5F9;
+    --middleGray: #C9D6DF;
+    --darkGray: #1E2022;
+}
+
+/* Main Layout */
+.App {
+    font-size: large;
+}
+
+#vizControls {
+    margin: 2% 0 2% 0;
+}
+
+#next {
+    min-width: 100px;
+    margin-left: 1%;
+}
+
+#previous {
+    min-width: 100px;
+    margin-left: 1%;
+}
+
+/* Other */
+#onboardingLogo {
+    position: absolute;
+    top: 0%;
+    right: 90px;
+    max-width: 100px;
+}
+
+#fhLogo {
+    max-width: 100px;
+    margin-top: -30px;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-greeting {
+    background-color: #E23E57;
+    color: white;
+    border-color: white;
+    margin: 5px 0 15px 0;
+    width: 50%;
+    align-self: center;
+}
+
+.btn-greeting:hover {
+    background-color: #88304E;
+    color: white;
+    border-color: white;
+}
+
+.pullRight {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.makeVisible {
+    opacity: 1;
+}
+
+.ant-tooltip-inner {
+    font-size: 0.7em;
+}
+
+/* vega-tooltip library changes */
+td {
+    font-size: 0.9rem;
+}
+
+/* MOBILE STUFF - Just in case someone does this...*/
+@media only screen and (max-device-width : 500px) {
+    .ant-col {
+        width: auto !important;
+    }
+}
