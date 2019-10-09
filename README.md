@@ -1,5 +1,5 @@
 # About
-The project involes a series of visualizations made with vega, d3 and embedded within a react application that show different onboarding techniques.
+The project involes a series of visualizations made with vega lite, d3 and embedded within a react application that show different onboarding techniques.
 (C) FHSTP
 
 # Development
