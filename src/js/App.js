@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import parse from 'html-react-parser';
 import VegaChart from './VegaChart';
 import Legend from './Legend';
 import Greeting from './components/Greeting';
@@ -95,7 +96,7 @@ class App extends Component {
               </Row> */}
               <Row type="flex" justify="start">
                 <Col span={24}>
-                  <h2>{VIZ_DESC}</h2>
+                  <h2>{parse(VIZ_DESC)}</h2>
                 </Col>
               </Row>
             </div>
