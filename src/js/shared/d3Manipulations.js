@@ -2,7 +2,6 @@ import * as d3 from 'd3';
 import { moveElementsToNewParent } from './util';
 
 const d3Showcase = () => {
-  setTimeout(() => {
     const paths = d3.select('.vegaViz1 > svg').selectAll('path');
     const oneBar = d3.select(paths.nodes()[5]);
     const oneBarBox = oneBar.node().getBBox();
@@ -43,7 +42,6 @@ const d3Showcase = () => {
       .attr('stroke-width', 2);
 
     console.log('Element: ', d3.select(paths.nodes()[3]));
-  }, 1);
 
   return 1;
 };

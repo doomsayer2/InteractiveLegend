@@ -34,10 +34,9 @@ class App extends Component {
    */
   componentDidMount() {
     this.setState({ loading: false });
-    d3Showcase();
   }
 
-  componentWillUpdate() {
+  componentDidUpdate() {
     d3Showcase();
   }
 
